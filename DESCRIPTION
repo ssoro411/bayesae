@@ -1,0 +1,10 @@
+Package: bayesae
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: HeeCheol Chung
+Maintainer: HeeCheol Chung <heecheol.chung25@uga.edut>
+Description: Hierarchical Bayes for Small Area Estimation
+License: HeeCheol Chung
+Encoding: UTF-8
+LazyData: true
