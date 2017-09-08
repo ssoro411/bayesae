@@ -73,19 +73,17 @@ data {
   matrix[m,m]   I;           // Identity matrix
 }
 parameters {
-  real<lower=-0.99999, upper=0.99999> rho;   // Spatial parameter 
+  real<lower=-0.99999, upper=0.99999> rho;   // Spatial parameter
   real<lower=0>  sigma_sq;                   // Scale parameter
   vector[7]          beta;                   // Regression parameter
   vector[m]         theta;                   // Area characteristics
 }
 transformed parameters {
   vector[m] mu;
-  cov_matrix[m] G;
   mu = X*beta;
-  G = (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) ;// SAR precision matrix
 }
 model {
-  theta    ~ multi_normal_prec(mu, G);
+  theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) );
   for( i in 1:m)
   y[i]     ~ normal(theta[i], sDi[i]);
 }
@@ -121,12 +119,10 @@ parameters {
 }
 transformed parameters {
   vector[m] mu;
-  cov_matrix[m] G;
   mu = X*beta;
-  G = (1/sigma_sq)*( (I-rho*(W)) ) ; // CAR precision matrix
 }
 model {
-  theta    ~ multi_normal_prec(mu, G);
+  theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W)) ) );
   for( i in 1:m)
   y[i]     ~ normal(theta[i], sDi[i]);
 }
@@ -175,12 +171,12 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     #                control = list(max_treedepth=15, adapt_delta = 0.99))
 
     stanfit <- stan(model_code = Model(model), ,model_name = model,
-                    data = dat, iter = iter, 
+                    data = dat, iter = iter,
                     pars = c("sigma_sq", "beta", "theta","log_lik"),
                     warmup = warmup, chains = chains,
                     open_progress=open.progress,
                     control = list(max_treedepth=15, adapt_delta = 0.99))
-    
+
     theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
     if(logit.trans) theta.smpl <- expit(theta.smpl)
     posterior.summary <- data.frame(domain = rownames(data),
