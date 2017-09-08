@@ -4,7 +4,9 @@ rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
 
-ww = function(){getwd()}
+basepath <- file.path(Sys.getenv("PROJECTS"), "bayesae")
+stanpath <- file.path(basepath)
+
 
 
 #########################################################################
