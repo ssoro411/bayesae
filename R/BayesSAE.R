@@ -192,7 +192,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                                          estimates = posterior.summary,
                                          model.call = this.call),
                                     stanfit.slots))
-    result
+    return( result )
 }
 
 
