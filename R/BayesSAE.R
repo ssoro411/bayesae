@@ -5,7 +5,7 @@ options(mc.cores = parallel::detectCores())
 
 
 basepath <- file.path(Sys.getenv("PROJECTS"), "bayesae")
-stanpath <- file.path(basepath, "StanCodes")
+stanpath <- file.path(basepath, "R/StanCodes")
 
 
 
