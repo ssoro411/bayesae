@@ -144,7 +144,7 @@ return(m)
 
 
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
-                        model = "FH", W = NULL, range = NULL,
+                        model = "FH", W = NULL, range = NULL, logit.trans=TRUE,
                         iter = 2000, warmup = floor(iter/2), chains = 4,
                         open.progress = TRUE, ...){
 
