@@ -4,9 +4,7 @@ rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
 
-basepath <- file.path(Sys.getenv("PROJECTS"), "bayesae")
-stanpath <- file.path(basepath, "R/StanCodes")
-
+ww = function(){getwd()}
 
 
 #########################################################################
