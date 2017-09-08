@@ -1,3 +1,7 @@
+library(rstan)
+library(loo)
+
+
 
 #########################################################################
 setClass(
@@ -16,8 +20,8 @@ setMethod("getEstimates", signature = "stanfit.sae",
 
 
 
-BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL, 
-                        model = "FH", W = NULL, range = NULL, 
+BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
+                        model = "FH", W = NULL, range = NULL,
                         iter = 2000, warmup = floor(iter/2), chains = 4,
                         open.progress = TRUE, ...){
 
@@ -35,7 +39,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     }else {
     dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=WSAR, I=I, rupper=range[2],rlower=range[1] )
      }
-    
+
     stanfit <- stan(file = file.path(stanpath, model_name), data = dat,
                     iter = iter, pars = c("sigma_sq", "beta", "theta",
                                           "log_lik"),
