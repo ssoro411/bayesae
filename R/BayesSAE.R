@@ -176,8 +176,9 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                     warmup = warmup, chains = chains,
                     open_progress=open.progress,
                     control = list(max_treedepth=15, adapt_delta = 0.99))
-
+print("a")
     theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
+print("b")
     if(logit.trans) theta.smpl <- expit(theta.smpl)
     posterior.summary <- data.frame(domain = rownames(data),
                             monitor(theta.smpl, digits_summary = 5,
@@ -186,6 +187,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     names(posterior.summary) <- c("domain", "mean", "se_mean", "sd",
                                     "Q.025", "median", "Q.975", "n_eff",
                                   "Rhat")
+print("c")
     stanfit.slots <- sapply(slotNames(stanfit), slot, object = stanfit,
                             simplify=F)
     result <- do.call("new", append(list("stanfit.sae",
