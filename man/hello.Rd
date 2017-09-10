@@ -12,7 +12,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                         control = list(max_treedepth=12, adapt_delta = 0.95),
                         open.progress = TRUE, ...)
 }
-\argumnets{
+\arguments{
 \item{formula}{formula}
 \item{data}{Dataframe with direct estimate and auxiliary variables.}
 \item{Di}{Sampling variance}
