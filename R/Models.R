@@ -57,11 +57,9 @@ Model = function(model) {
       transformed parameters {
       vector[m] mu;
       mu = X*beta;
-      cov_matrix[m] G;
-      G = (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) ;
       }
       model {
-      theta    ~ multi_normal_prec(mu, G);
+      theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) );
       for( i in 1:m)
       y[i]     ~ normal(theta[i], sDi[i]);
       }
