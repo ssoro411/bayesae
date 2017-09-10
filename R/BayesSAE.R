@@ -6,7 +6,6 @@ options(mc.cores = parallel::detectCores())
 
 
 
-
 #########################################################################
 setClass(
     Class = "stanfit.sae",
