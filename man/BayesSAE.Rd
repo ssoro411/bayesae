@@ -15,3 +15,5 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 \examples{
 hello()
 }
+
+
