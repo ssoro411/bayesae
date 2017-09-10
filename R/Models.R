@@ -86,7 +86,6 @@ Model = function(model) {
       real<lower=0> sDi[m];      // Square root of sampling variances
       matrix<lower=0, upper=1>[m,m]   W;           // Spatial matrix
       matrix[m,p]   X;           // Auxiliary variable matrix
-      matrix[m,m]   I;           // Identity matrix
       real rupper;                   // Upper bound of rho
       real rlower;                   // Lower bound of rho
       }
@@ -98,6 +97,10 @@ Model = function(model) {
       }
       transformed parameters {
       vector[m] mu;
+      vector[m] ones;
+      matrix<lower=0>[m,m] I;
+      ones = rep_vector(1,m);
+      I    = diag_matrix(ones);
       mu = X*beta;
       }
       model {
