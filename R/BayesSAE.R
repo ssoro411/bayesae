@@ -10,7 +10,7 @@ options(mc.cores = parallel::detectCores())
 #########################################################################
 setClass(
     Class = "stanfit.sae",
-    slots = c(estimates = "data.frame", model.call = "list"),
+    slots = c(estimates = "data.frame", fitness = "list", model.call = "list"),
     contains = "stanfit"
 )
 #########################################################################
@@ -20,7 +20,8 @@ setGeneric("getEstimates",
            def = function(object){standardGeneric("getEstimates")})
 setMethod("getEstimates", signature = "stanfit.sae",
           definition = function(object){object@estimates})
-
+setMethod("fitness", signature = "stanfit.sae",
+          definition = function(object){object@fitness})
 
 
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
@@ -53,9 +54,8 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
 
-    #    ll = extract_log_lik(stanfit)
-    #    LOO = loo(ll)
-    #    WAIC = waic(ll)
+    ll = extract_log_lik(stanfit)
+    model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
 
     if(logit.trans) theta.smpl <- expit(theta.smpl)
     posterior.summary <- data.frame(domain = rownames(data),
@@ -70,6 +70,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     result <- do.call("new", append(list("stanfit.sae",
                                          estimates = posterior.summary,
+                                         fitness   = model_qual,
                                          model.call = this.call),
                                     stanfit.slots))
     return( result )
