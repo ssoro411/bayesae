@@ -1,5 +1,6 @@
 library(rstan)
 library(loo)
+library(roxygen2)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
