@@ -67,6 +67,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                                   "Rhat")
     stanfit.slots <- sapply(slotNames(stanfit), slot, object = stanfit,
                             simplify=F)
+
     result <- do.call("new", append(list("stanfit.sae",
                                          estimates = posterior.summary,
                                          model.call = this.call),

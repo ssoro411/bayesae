@@ -57,9 +57,11 @@ Model = function(model) {
       transformed parameters {
       vector[m] mu;
       mu = X*beta;
+      cov_matrix[m] G;
+      G = (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) ;
       }
       model {
-      theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) );
+      theta    ~ multi_normal_prec(mu, G);
       for( i in 1:m)
       y[i]     ~ normal(theta[i], sDi[i]);
       }
@@ -72,7 +74,7 @@ Model = function(model) {
       "
     } else {
       #########################################################################
-      ##  Stan Model : SAR
+      ##  Stan Model : CAR
       #########################################################################
 
       m <- "
@@ -95,10 +97,12 @@ Model = function(model) {
       }
       transformed parameters {
       vector[m] mu;
+      cov_matrix[m] G;
+      G = (1/sigma_sq)*( (I-rho*(W)) );
       mu = X*beta;
       }
       model {
-      theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W)) ) );
+      theta    ~ multi_normal_prec(mu, G);
       for( i in 1:m)
       y[i]     ~ normal(theta[i], sDi[i]);
       }
