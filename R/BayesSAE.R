@@ -81,3 +81,5 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 }
 
 
+
+

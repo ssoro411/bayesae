@@ -2,7 +2,7 @@
 \alias{BayesSAE}
 \title{Hierarchical Bayes approach to small area estimation interfacing with Stan}
 \description{
-Posterior simulation is conducted via Stan
+Posterior simulation via Stan.
 }
 \usage{
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
