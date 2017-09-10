@@ -13,7 +13,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                         open.progress = TRUE, ...)
 }
 \examples{
-hello()
+hello()...
 }
 
 
