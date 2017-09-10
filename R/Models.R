@@ -59,7 +59,7 @@ Model = function(model) {
       mu = X*beta;
       }
       model {
-      theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W))*(I-rho*(W'))  ) );
+      theta    ~ multi_normal_prec(mu, (1/sigma_sq)*((I-rho*(W))*(I-rho*(W'))) );
       for( i in 1:m)
       y[i]     ~ normal(theta[i], sDi[i]);
       }
