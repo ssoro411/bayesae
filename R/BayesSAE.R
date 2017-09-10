@@ -53,9 +53,9 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
 
-    ll = extract_log_lik(stanfit)
-    LOO = loo(ll)
-    WAIC = waic(ll)
+    #    ll = extract_log_lik(stanfit)
+    #    LOO = loo(ll)
+    #    WAIC = waic(ll)
 
     if(logit.trans) theta.smpl <- expit(theta.smpl)
     posterior.summary <- data.frame(domain = rownames(data),
