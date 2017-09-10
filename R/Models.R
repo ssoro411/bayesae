@@ -12,7 +12,7 @@ Model = function(model) {
     vector[p]        X[m];    // Auxiliary variable
     }
     parameters {
-    real<lower=0>     sigma;       // Scale parameter
+    real<lower=0>     sigma_sq;       // Scale parameter
     vector[p]          beta;       // Regression parameter
     vector[m]         theta;       // Area characteristics
     }
@@ -23,7 +23,7 @@ Model = function(model) {
     }
     model {
     for( i in 1:m)
-    theta[i] ~ normal(mu[i], sigma);
+    theta[i] ~ normal(mu[i], sqrt(sigma_sq));
     for( i in 1:m)
     y[i]     ~ normal(theta[i], sDi[i]);
     }
