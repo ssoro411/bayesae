@@ -1,5 +1,6 @@
 library(rstan)
 library(loo)
+library(roxygen2)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
@@ -22,10 +23,15 @@ setMethod("getEstimates", signature = "stanfit.sae",
           definition = function(object){object@estimates})
 
 
+#########################################################################
+##  Function that conducts posterior simulation using Stan
+#########################################################################
+
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                         model = "FH", W = NULL, range = NULL, logit.trans=TRUE,
                         pars=c("sigma_sq", "beta", "theta","log_lik"),
                         iter = 1000, warmup = floor(iter/2), chains = 4,
+                        control = list(max_treedepth=12, adapt_delta = 0.95),
                         open.progress = TRUE, ...){
 
     this.call <- as.list( sys.call() )
@@ -48,7 +54,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                     data = dat, pars = pars,
                     iter = iter, warmup = warmup, chains = chains,
                     open_progress = open.progress,
-                    control = list(max_treedepth=15, adapt_delta = 0.99))
+                    control = control )
 
     theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
 
