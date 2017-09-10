@@ -12,9 +12,6 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                         control = list(max_treedepth=12, adapt_delta = 0.95),
                         open.progress = TRUE, ...)
 }
-\arguments{
-
-}
 \examples{
 hello()
 }
