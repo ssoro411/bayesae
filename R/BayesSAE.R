@@ -20,8 +20,6 @@ setGeneric("getEstimates",
            def = function(object){standardGeneric("getEstimates")})
 setMethod("getEstimates", signature = "stanfit.sae",
           definition = function(object){object@estimates})
-setMethod("fitness", signature = "stanfit.sae",
-          definition = function(object){object@fitness})
 
 
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
