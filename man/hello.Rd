@@ -1,11 +1,19 @@
-\name{hello}
-\alias{hello}
-\title{Hello, World!}
-\usage{
-hello()
-}
+\name{BayesSAE}
+\alias{BayesSAE}
+\title{Hierarchical Bayes approach to small area estimation interfacing with Stan}
 \description{
-Prints 'Hello, world!'.
+Posterior simulation is conducted via Stan
+}
+\usage{
+BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
+                        model = "FH", W = NULL, range = NULL, logit.trans=TRUE,
+                        pars=c("sigma_sq", "beta", "theta","log_lik"),
+                        iter = 1000, warmup = floor(iter/2), chains = 4,
+                        control = list(max_treedepth=12, adapt_delta = 0.95),
+                        open.progress = TRUE, ...)
+}
+\arguments{
+
 }
 \examples{
 hello()
