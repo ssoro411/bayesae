@@ -1,6 +1,7 @@
 library(rstan)
 library(loo)
 library(roxygen2)
+
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
@@ -17,6 +18,7 @@ setClass(
 #########################################################################
 ##  S4 method for extraction of SAEs from class stanfit.sae
 #########################################################################
+
 setGeneric("getEstimates",
            def = function(object){standardGeneric("getEstimates")})
 setMethod("getEstimates", signature = "stanfit.sae",
