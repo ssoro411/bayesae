@@ -14,13 +14,12 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 }
 \arguments{
 \item{formula}{formula}
-
-\item{model}{"FH","CAR","SAR"}
-
-\item{W}{Spatial matrix with 0 and 1.}
-
-\item{range}{Range of eigenvalues of W (only used \item{model}="CAR")}
-
+\item{data}{Data frame with direct estimate and auxiliary variables.}
+\item{Di}{Sampling variance.}
+\item{domain}{Vector with Domain names.}
+\item{model}{There are free possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.}
+\item{W}{Spatial matrix. If model \code{model}="SAR", rowsum should be 1.
+\item{range}{Range of eigenvalues of W (only used \code{model}="CAR")}
 }
 \examples{
 hello()...
