@@ -14,13 +14,6 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 }
 \arguments{
 \item{formula}{formula}
-
-\item{model}{"FH","CAR","SAR"}
-
-\item{W}{Spatial matrix with 0 and 1.}
-
-\item{range}{Range of eigenvalues of W (only used \item{model}="CAR")}
-
 }
 \examples{
 hello()
