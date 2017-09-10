@@ -18,12 +18,14 @@ Model = function(model) {
     }
     transformed parameters {
     vector[m] mu;
+    real<lower=0> sigma;
+    sigma = sqrt(sigma_sq);
     for( i in 1:m)
     mu[i] = X[i]'*beta;
     }
     model {
     for( i in 1:m)
-    theta[i] ~ normal(mu[i], sqrt(sigma_sq));
+    theta[i] ~ normal(mu[i], sigma;
     for( i in 1:m)
     y[i]     ~ normal(theta[i], sDi[i]);
     }
