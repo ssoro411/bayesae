@@ -28,7 +28,7 @@ Model = function(model) {
     y[i]     ~ normal(theta[i], sDi[i]);
     }
     generated quantities{
-    vector[m] log_lik;
+    vector[m] log_lik;            // This is for model cheking criteria (loo, WAIC)
     for( i in 1:m)
     log_lik[i] = normal_lpdf(y[i]|theta[i],sDi[i]);
     }
@@ -67,7 +67,7 @@ Model = function(model) {
       y[i]     ~ normal(theta[i], sDi[i]);
       }
       generated quantities{
-      vector[m] log_lik;
+      vector[m] log_lik;            // This is for model cheking criteria (loo, WAIC)
       for( i in 1:m)
       log_lik[i] = normal_lpdf(y[i]|theta[i],sDi[i]);
       }
@@ -109,7 +109,7 @@ Model = function(model) {
       y[i]     ~ normal(theta[i], sDi[i]);
       }
       generated quantities{
-      vector[m] log_lik;
+      vector[m] log_lik;            // This is for model cheking criteria (loo, WAIC)
       for( i in 1:m)
       log_lik[i] = normal_lpdf(y[i]|theta[i],sDi[i]);
       }

@@ -17,12 +17,14 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 \item{data}{Data frame with direct estimate and auxiliary variables.}
 \item{Di}{Sampling variance.}
 \item{domain}{Vector with Domain names.}
-\item{model}{There are free possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.}
+\item{model}{There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.}
+\item{pars}{Parameters to be monitored.}
 \item{W}{Spatial matrix. If model \code{model}="SAR", rowsum should be 1.
 \item{range}{Range of eigenvalues of W (only used \code{model}="CAR")}
+\item{logit.trans}{If true, it transforms simulated theta values to inv.logit(theta).}
 }
 \examples{
-hello()...
+To be updated.
 }
 
 
