@@ -1,6 +1,6 @@
 \name{BayesSAE}
 \alias{BayesSAE}
-\title{Hierarchical Bayes approach to small area estimation interfacing with Stan}
+\title{Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan. }
 \description{
 Posterior simulation via Stan.
 }

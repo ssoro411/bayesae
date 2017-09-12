@@ -1,6 +1,8 @@
-## Benchmarking function
+library(roxygen2)
+roxygen2::roxygenise()
+## Benchmarked Bayes Estimator
 
-BM = function(theta_b,t,w,phi,lambda=NA){
+BM = function(theta_b, t, w, phi, lambda=NA){
 r = w/phi
 s = sum(w*r)
 if( is.na(lambda) ){
