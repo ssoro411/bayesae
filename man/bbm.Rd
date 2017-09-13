@@ -12,6 +12,10 @@ bbm(theta_b, w, t, phi, lambda = NA)
 \item{w}{Given weight vector.}
 
 \item{t}{Pre-specified number.}
+
+\item{phi}{Chekc reference paper.}
+
+\item{lambda}{Chekc reference paper.}
 }
 \value{
 Resulting Benchmarked Bayes Estimator.

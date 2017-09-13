@@ -4,8 +4,8 @@
 #' @param theta_b Bayes estimator.
 #' @param w Given weight vector.
 #' @param t Pre-specified number.
-#' @param phi
-#' @param lambda
+#' @param phi Chekc reference paper.
+#' @param lambda Chekc reference paper.
 #' @return Resulting Benchmarked Bayes Estimator.
 #' @export
 #' @references
