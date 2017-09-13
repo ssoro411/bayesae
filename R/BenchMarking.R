@@ -9,7 +9,7 @@
 #' @return Resulting Benchmarked Bayes Estimator.
 #' @export
 #' @references
-#' \insertRef{datta2011bench:bibtex}{bayesae}
+#' \insertRef{datta2011bench}{bayesae}
 
 
 ## Benchmarked Bayes Estimator
