@@ -20,5 +20,6 @@ Resulting Benchmarked Bayes Estimator.
 Constrained Bayes estimator which minimizes posterior weighted squared error loss.
 }
 \references{
-Datta, Gauri Sankar, et al. "Bayesian benchmarking with applications to small area estimation." Test 20.3 (2011): 574-588.
+\insertRef{Rpack:bibtex}{Rdpack}
+\insertRef{datta2011bench}{bibtex}
 }
