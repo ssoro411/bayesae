@@ -11,9 +11,8 @@
 #' @references
 #' \insertRef{Rpack:bibtex}{Rdpack}
 #' \insertRef{R}{bibtex}
-#'
-#'
-#'
+
+
 ## Benchmarked Bayes Estimator
 
 bbm = function(theta_b, w, t, phi, lambda=NA){
