@@ -120,7 +120,7 @@ Model = function(model) {
 
       "
     } else {
-      "
+      m <-"
       data {
   int<lower=1>       m;      // number of small areas
       int<lower=1>       s;      // Dimension of data
