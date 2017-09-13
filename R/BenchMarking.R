@@ -10,7 +10,7 @@
 #' @export
 #' @references
 #' \insertRef{Rpack:bibtex}{Rdpack}
-#' \insertRef{datta2011bench}{bibtex}
+#' \insertRef{datta2011bench:bibtex}{bayesae}
 
 
 ## Benchmarked Bayes Estimator
