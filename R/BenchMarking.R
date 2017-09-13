@@ -10,7 +10,7 @@
 #' @export
 #' @references
 #' \insertRef{Rpack:bibtex}{Rdpack}
-#' \insertRef{REFERENCES:bibtex}{Rdpack}
+#' \insertRef{R}{REFERENCES.bib}
 
 
 ## Benchmarked Bayes Estimator

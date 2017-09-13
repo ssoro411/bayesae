@@ -25,5 +25,5 @@ Constrained Bayes estimator which minimizes posterior weighted squared error los
 }
 \references{
 \insertRef{Rpack:bibtex}{Rdpack}
-\insertRef{REFERENCES:bibtex}{Rdpack}
+\insertRef{R}{REFERENCES.bib}
 }
