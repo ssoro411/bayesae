@@ -23,3 +23,4 @@ if( is.na(lambda) ){
 
 return(theta_BM)
 }
+
