@@ -8,8 +8,12 @@
 #' @param lambda
 #' @return Resulting Benchmarked Bayes Estimator.
 #' @export
-#' @references Datta, Gauri Sankar, et al. "Bayesian benchmarking with applications to small area estimation." Test 20.3 (2011): 574-588.
-
+#' @references
+#' \insertRef{Rpack:bibtex}{Rdpack}
+#' \insertRef{R}{bibtex}
+#'
+#'
+#'
 ## Benchmarked Bayes Estimator
 
 bbm = function(theta_b, w, t, phi, lambda=NA){
