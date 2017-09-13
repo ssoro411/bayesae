@@ -13,9 +13,9 @@ bbm(theta_b, w, t, phi, lambda = NA)
 
 \item{t}{Pre-specified number.}
 
-\item{phi}{Chekc reference paper.}
+\item{phi}{Check reference paper.}
 
-\item{lambda}{Chekc reference paper.}
+\item{lambda}{Check reference paper.}
 }
 \value{
 Resulting Benchmarked Bayes Estimator.
