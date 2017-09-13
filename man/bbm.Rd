@@ -24,5 +24,6 @@ Resulting Benchmarked Bayes Estimator.
 Constrained Bayes estimator which minimizes posterior weighted squared error loss.
 }
 \references{
-\insertRef{datta2011bench:bibtex}{Rdpack}
+\insertRef{Rpack:bibtex}{Rdpack}
+\insertRef{datta2011bench}{bayesae}
 }
