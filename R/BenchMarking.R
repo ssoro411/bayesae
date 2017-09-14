@@ -15,7 +15,7 @@
 
 ## Benchmarked Bayes Estimator
 
-bbm = function(theta_b, w, t, phi, lambda=NA){
+bbm = function(theta_b, w, t, phi, lambda=NULL){
 r = w/phi
 s = sum(w*r)
 
