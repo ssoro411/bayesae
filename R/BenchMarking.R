@@ -5,7 +5,7 @@
 #' @param w Weight vector associates with the benchmark.
 #' @param t Pre-specified number.
 #' @param phi Weight vector associates with weighted squared sum of square loss.
-#' @param lambda Penalty parameter. When it is NULL, lambda = infinity and it will give exact
+#' @param lambda Penalty parameter. When it is NULL, lambda = infinity and it will give exact benchmark.
 #' @return Resulting Benchmarked Bayes Estimator.
 #' @export
 #' @references
