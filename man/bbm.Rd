@@ -9,13 +9,13 @@ bbm(theta_b, w, t, phi, lambda = NA)
 \arguments{
 \item{theta_b}{Bayes estimator.}
 
-\item{w}{Given weight vector.}
+\item{w}{Weight vector associates with the benchmark.}
 
 \item{t}{Pre-specified number.}
 
-\item{phi}{Check reference paper.}
+\item{phi}{Weight vector associates with weighted squared sum of square loss.}
 
-\item{lambda}{Check reference paper.}
+\item{lambda}{Penalty parameter. When it is NULL, lambda = infinity and it will give exact benchmark.}
 }
 \value{
 Resulting Benchmarked Bayes Estimator.
