@@ -4,7 +4,7 @@
 \alias{bbm}
 \title{Benchmarked Bayes Estimator}
 \usage{
-bbm(theta_b, w, t, phi, lambda = NA)
+bbm(theta_b, w, t, phi, lambda = Inf)
 }
 \arguments{
 \item{theta_b}{Bayes estimator.}
@@ -15,7 +15,7 @@ bbm(theta_b, w, t, phi, lambda = NA)
 
 \item{phi}{Weight vector associates with weighted squared sum of square loss.}
 
-\item{lambda}{Penalty parameter. When it is NULL, lambda = infinity and it will give exact benchmark.}
+\item{lambda}{Penalty parameter. Default is \lambda = \infty isand it will give exact benchmark.}
 }
 \value{
 Resulting Benchmarked Bayes Estimator.
