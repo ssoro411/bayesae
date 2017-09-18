@@ -15,7 +15,7 @@ bbm(theta_b, w, t, phi, lambda = Inf)
 
 \item{phi}{Weight vector associates with weighted squared sum of square loss.}
 
-\item{lambda}{Penalty parameter. Default is \eqn{\lambda = \infty} and it will give exact benchmark.}
+\item{lambda}{Penalty parameter. Default is \eqn{\lambda = \infty} and it will conduct exact benchmark.}
 }
 \value{
 Resulting Benchmarked Bayes Estimator.
