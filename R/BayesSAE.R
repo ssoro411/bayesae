@@ -40,6 +40,8 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     aux <- names(mf_)[-1]
     model_name <- paste("Stan_",model,".stan",sep="")
 
+    if( is.null(domain ) ){ domain = rownames(data) }
+
     if(model == "FH"){
     dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di) )
     }else if (model == "SAR"){
@@ -61,10 +63,11 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
 
     if(logit.trans) theta.smpl <- expit(theta.smpl)
-    posterior.summary <- data.frame(domain = rownames(data),
+    posterior.summary <- data.frame(domain = domain,
                             monitor(theta.smpl, digits_summary = 5,
+                                    warmup = 0,
                                     probs = c(0.025, 0.50, 0.975),
-                                    print = FALSE))
+                                    print = FALSE))[,-3]
     names(posterior.summary) <- c("domain", "mean", "se_mean", "sd",
                                     "Q.025", "median", "Q.975", "n_eff",
                                   "Rhat")
