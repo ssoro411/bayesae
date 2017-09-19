@@ -68,7 +68,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                                     warmup = 0,
                                     probs = c(0.025, 0.50, 0.975),
                                     print = FALSE))[,-3]
-    names(posterior.summary) <- c("domain", "mean", "se_mean", "sd",
+    names(posterior.summary) <- c("domain", "mean", "sd",
                                     "Q.025", "median", "Q.975", "n_eff",
                                   "Rhat")
     stanfit.slots <- sapply(slotNames(stanfit), slot, object = stanfit,
