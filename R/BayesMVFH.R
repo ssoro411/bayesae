@@ -13,27 +13,8 @@
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
 #' @return Simulated posterior sample from the Stan.
 
-library(rstan)
-library(loo)
-rstan_options(auto_write = TRUE)
-options(mc.cores = parallel::detectCores())
-#########################################################################
-setClass(
-  Class = "stanfit.sae",
-  slots = c(estimates = "data.frame", fitness = "list", model.call = "list"),
-  contains = "stanfit")
-#########################################################################
-##  S4 method for extraction of SAEs from class stanfit.sae
-#########################################################################
-setGeneric("getEstimates",
-           def = function(object){standardGeneric("getEstimates")})
-setMethod("getEstimates", signature = "stanfit.sae",
-          definition = function(object){object@estimates})
-#########################################################################
-##  Function that conducts posterior simulation using Stan
-#########################################################################
 
-BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
+BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model="MV"
                      pars=NA, iter = 1000, warmup = floor(iter/2), chains = 4,
                      control = list(max_treedepth=12, adapt_delta = 0.95),
                      open.progress = TRUE, ...){
