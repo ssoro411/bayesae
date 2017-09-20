@@ -6,7 +6,7 @@
 \arguments{
 \item{direct}{Direct estimates.}
 
-\item{aux}{Auxiliary variables.}
+\item{aux}{\code{m}\eqn{\times}\code{m}\eqn{\times}\code{p} array of auxiliary variables.}
 
 \item{Di}{Sampling variance}
 
@@ -16,7 +16,7 @@
 
 \item{iter}{Total iteration.}
 
-\item{warmup}{Warm up. Default is "iter/2".}
+\item{warmup}{Warm up. Default is "\code{iter}/2".}
 
 \item{chains}{Number of chains. Default is 4.}
 

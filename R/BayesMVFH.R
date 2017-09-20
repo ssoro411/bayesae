@@ -3,12 +3,12 @@
 #' Bayesian approach to \code{s}-variate Fay-Herriot models.
 #' @name BayesMVFH
 #' @param direct Direct estimates.
-#' @param aux Auxiliary variables.
+#' @param aux \code{m}\eqn{\times}\code{m}\eqn{\times}\code{p} array of auxiliary variables.
 #' @param Di Sampling variance
 #' @param domain Domain names.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
-#' @param warmup Warm up. Default is "iter/2".
+#' @param warmup Warm up. Default is "\code{iter}/2".
 #' @param chains Number of chains. Default is 4.
 #' @param control See the "rstan" document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
