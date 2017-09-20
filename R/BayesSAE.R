@@ -7,7 +7,7 @@
 #' @param Di Sampling variance.
 #' @param domain Vector with Domain names.
 #' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
-#' @param W Spatial matrix. If model="SAR", rowsum should be 1.
+#' @param W Spatial matrix. If \code{model}="SAR", rowsum should be 1.
 #' @param range Range of eigenvalues of W (only used if model="CAR").
 #' @param logit.trans If true, it transforms simulated theta values to inv.logit(theta).
 #' @param pars Parameters to be monitored.

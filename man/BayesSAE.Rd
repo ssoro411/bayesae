@@ -14,7 +14,7 @@
 
 \item{model}{There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.}
 
-\item{W}{Spatial matrix. If model="SAR", rowsum should be 1.}
+\item{W}{Spatial matrix. If \code{model}="SAR", rowsum should be 1.}
 
 \item{range}{Range of eigenvalues of W (only used if model="CAR").}
 
