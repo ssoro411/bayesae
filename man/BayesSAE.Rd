@@ -16,7 +16,7 @@
 
 \item{W}{Spatial matrix. If \code{model}="SAR", rowsum should be 1.}
 
-\item{range}{Range of eigenvalues of W (only used if model="CAR").}
+\item{range}{Range of eigenvalues of W (only used if \code{model}="CAR").}
 
 \item{logit.trans}{If true, it transforms simulated theta values to inv.logit(theta).}
 
@@ -24,7 +24,7 @@
 
 \item{iter}{Total iteration.}
 
-\item{warmup}{Warm up. Default is "iter/2".}
+\item{warmup}{Warm up. Default is "\code{floor}\code{iter}/2".}
 
 \item{chains}{Number of chains. Default is 4.}
 

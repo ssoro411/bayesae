@@ -8,11 +8,11 @@
 #' @param domain Vector with Domain names.
 #' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
 #' @param W Spatial matrix. If \code{model}="SAR", rowsum should be 1.
-#' @param range Range of eigenvalues of W (only used if model="CAR").
+#' @param range Range of eigenvalues of W (only used if \code{model}="CAR").
 #' @param logit.trans If true, it transforms simulated theta values to inv.logit(theta).
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
-#' @param warmup Warm up. Default is "iter/2".
+#' @param warmup Warm up. Default is "\code{floor}\code{iter}/2".
 #' @param chains Number of chains. Default is 4.
 #' @param control See the "rstan" document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
