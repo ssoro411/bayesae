@@ -37,7 +37,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model
   ll = extract_log_lik(stanfit)
   model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
 
-  posterior.summary <- data.frame(domain = rownames(data),
+  posterior.summary <- data.frame(domain = domain,
                                   monitor(theta.smpl, digits_summary = 5,
                                           warmup = 0,
                                           probs = c(0.025, 0.50, 0.975),
