@@ -127,7 +127,7 @@ Model = function(model) {
       int<lower=1>       p;      // Number of auxiliary variables
       matrix[s,p]        X[m];   // Auxiliary variables
       vector[s]          yi[m];  // Response vector
-      vector<lower=0>[s] Si[m];  // Sampling errors (Variance)
+      vector<lower=0>[s] Di[m];  // Sampling errors (Variance)
       }
       parameters {
       vector[p] beta;             //
@@ -143,12 +143,12 @@ Model = function(model) {
       for( i in 1:m)
       theta[i] ~ multi_normal_cholesky(mu[i], L);
       for( i in 1:m)
-      yi[i]     ~ multi_normal(theta[i], diag_matrix(Si[i]));
+      yi[i]     ~ multi_normal(theta[i], diag_matrix(Di[i]));
       }
       generated quantities{
       vector[m] log_lik;
       for( i in 1:m)
-      log_lik[i] <- multi_normal_cholesky_lpdf(yi[i]|theta[i],diag_matrix(Si[i]));
+      log_lik[i] = multi_normal_cholesky_lpdf(yi[i]|theta[i],diag_matrix(Di[i]));
       }
 
       "
