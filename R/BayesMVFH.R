@@ -14,8 +14,8 @@
 #' @return Simulated posterior sample from the Stan.
 
 
-BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model="MV"
-                     pars=NA, iter = 1000, warmup = floor(iter/2), chains = 4,
+BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model="MV",
+                      pars = NA, iter = 1000, warmup = floor(iter/2), chains = 4,
                      control = list(max_treedepth=12, adapt_delta = 0.95),
                      open.progress = TRUE, ...){
 
