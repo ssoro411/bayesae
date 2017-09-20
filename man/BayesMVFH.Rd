@@ -5,13 +5,13 @@
 \alias{BayesMVFH}
 \title{Multivariate Fay-Herriot Model interfacing with Stan}
 \arguments{
-\item{direct}{\code{m}\eqn{\times}\code{s} direct estimate matrix.}
+\item{direct}{Direct estimates.}
 
-\item{aux}{\code{m}\eqn{\times}\code{s}\eqn{\times}\code{p} auxiliary variable array.}
+\item{aux}{Auxiliary variables.}
 
-\item{Di}{\code{m}\eqn{\times}\code{s} sampling variance matrix.}
+\item{Di}{Sampling variance}
 
-\item{domain}{\code{m} vector with domain names.}
+\item{domain}{Domain names.}
 
 \item{pars}{Parameters to be monitored.}
 
@@ -29,7 +29,7 @@
 Simulated posterior sample from the Stan.
 }
 \description{
-Bayesian approach to \code{s}-variate  Fay-Herriot models.
+Bayesian approach to Multivariate Fay-Herriot models.
 }
 \references{
 \insertRef{carpenter2016stan}{bayesae}

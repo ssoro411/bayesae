@@ -1,11 +1,11 @@
 #' Multivariate Fay-Herriot Model interfacing with Stan
 #'
-#' Bayesian approach to \code{s}-variate  Fay-Herriot models.
+#' Bayesian approach to Multivariate Fay-Herriot models.
 #' @name BayesMVFH
-#' @param direct \code{m}\eqn{\times}\code{s} direct estimate matrix.
-#' @param aux \code{m}\eqn{\times}\code{s}\eqn{\times}\code{p} auxiliary variable array.
-#' @param Di \code{m}\eqn{\times}\code{s} sampling variance matrix.
-#' @param domain \code{m} vector with domain names.
+#' @param direct Direct estimates.
+#' @param aux Auxiliary variables.
+#' @param Di Sampling variance
+#' @param domain Domain names.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
 #' @param warmup Warm up. Default is "iter/2".
