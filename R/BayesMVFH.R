@@ -20,6 +20,8 @@
 #' \insertRef{carpenter2016stan}{bayesae}
 #'
 #' \insertRef{guo2016rstan}{bayesae}
+#'
+#' \insertRef{vehtari2014waic}{bayesae}
 
 
 
