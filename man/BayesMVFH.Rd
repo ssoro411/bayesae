@@ -2,12 +2,12 @@
 % Please edit documentation in R/BayesMVFH.R
 \name{BayesMVFH}
 \alias{BayesMVFH}
-\title{Multivariate Fay-Herriot Model}
+\title{Multivariate Fay-Herriot Model interfacing with Stan}
 \usage{
 BayesMVFH(direct = NULL, aux = NULL, Di = NULL, domain = NULL,
-  model = "MV", pars = NA, iter = 1000, warmup = floor(iter/2),
-  chains = 4, control = list(max_treedepth = 12, adapt_delta = 0.95),
-  open.progress = TRUE, ...)
+  pars = NA, iter = 1000, warmup = floor(iter/2), chains = 4,
+  control = list(max_treedepth = 12, adapt_delta = 0.95),
+  open.progress = TRUE)
 }
 \arguments{
 \item{direct}{Direct estimates.}

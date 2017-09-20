@@ -1,9 +1,26 @@
+#' Univariate hierarchical Bayes approach to small area estimation.
+#'
+#' Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan.
+#' @param formular formula
+#' @param data Data frame with direct estimate and auxiliary variables.
+#' @param Di Sampling variance.
+#' @param domain Vector with Domain names.
+#' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
+#' @param W Spatial matrix. If {model}="SAR", rowsum should be 1.
+#' @param range Range of eigenvalues of W (only used if {model}="CAR").
+#' @param logit.trans If true, it transforms simulated theta values to inv.logit(theta).
+#' @param pars Parameters to be monitored.
+#' @param iter Total iteration.
+#' @param warmup Warm up. Default is "iter/2".
+#' @param chains Number of chains. Default is 4.
+#' @param control See the "rstan" document.
+#' @param open.progress Progress of chiain will be presented if it is TRUE.
+#' @return Simulated posterior sample from the Stan.
+
 library(rstan)
 library(loo)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
-
-
 
 
 #########################################################################
@@ -31,7 +48,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                         pars=c("sigma_sq", "beta", "theta","log_lik"),
                         iter = 1000, warmup = floor(iter/2), chains = 4,
                         control = list(max_treedepth=12, adapt_delta = 0.95),
-                        open.progress = TRUE, ...){
+                        open.progress = TRUE){
 
     this.call <- as.list( sys.call() )
     mf_ <- model.frame(formula, data = data)

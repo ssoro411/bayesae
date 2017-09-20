@@ -1,13 +1,20 @@
 Package: bayesae
 Type: Package
+Date: 2017-09-25
 Title: Hierarchical Bayes for Small Area Estimation
 Version: 0.1.0
-Author: HeeCheol Chung
-Maintainer: HeeCheol Chung <heecheol.chung25@uga.edut>
-Description: Hierarchical Bayes to Small Area Estimation Model
-License: HeeCheol Chung
+Authors@R: c(person("Gauri", "Datta", role = "aut"),
+              person("HeeCheol", "Chung", role = c("aut", "cre"),
+                     email = "heecheol.chung25@uga.edu"),
+              person("Steve", "Gutreuter", role = "aut"))
+Author: Gauri Datta [aut], HeeCheol Chung [aut, cre], Steve Gutreuter [aut]
+Maintainer: HeeCheol Chung <heecheol.chung25@uga.edu>
+Description: Hierarchical Bayes approach to Small Area Estimation Models
+License: HeeCheol Chung, Steve Gutreuter
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
 RdMacros: Rdpack
 Imports: Rdpack
+
+

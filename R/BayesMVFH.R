@@ -1,4 +1,4 @@
-#' Multivariate Fay-Herriot Model
+#' Multivariate Fay-Herriot Model interfacing with Stan
 #'
 #' Bayesian approach to Multivariate Fay-Herriot models.
 #' @param direct Direct estimates.
@@ -14,10 +14,10 @@
 #' @return Simulated posterior sample from the Stan.
 
 
-BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model="MV",
+BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
                       pars = NA, iter = 1000, warmup = floor(iter/2), chains = 4,
                      control = list(max_treedepth=12, adapt_delta = 0.95),
-                     open.progress = TRUE, ...){
+                     open.progress = TRUE){
 
   this.call  <- as.list( sys.call() )
   model_name <- paste("Multivariate_FH.stan")
@@ -26,7 +26,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model
 
   if( is.null(domain ) ){ domain = 1:dim(aux)[1] }
 
-  stanfit <- stan(model_code = Model("MV"), model_name = model,
+  stanfit <- stan(model_code = Model("MV"), model_name = "Multivariate_FH",
                   data = dat, pars = pars,
                   iter = iter, warmup = warmup, chains = chains,
                   open_progress = open.progress,
