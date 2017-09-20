@@ -24,6 +24,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL, model
 
   dat = list(m=dim(aux)[1], s=dim(aux)[2],  p=dim(aux)[3], yi=direct, X=aux, Di= Di  )
 
+  if( is.null(domain ) ){ domain = 1:dim(aux)[1] }
 
   stanfit <- stan(model_code = Model("MV"), model_name = model,
                   data = dat, pars = pars,
