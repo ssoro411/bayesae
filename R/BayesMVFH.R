@@ -1,6 +1,6 @@
 #' Multivariate Fay-Herriot Model interfacing with Stan
 #'
-#' Bayesian approach to Multivariate Fay-Herriot models.
+#' Bayesian approach to \code{s}-variate Fay-Herriot models.
 #' @name BayesMVFH
 #' @param direct Direct estimates.
 #' @param aux Auxiliary variables.
