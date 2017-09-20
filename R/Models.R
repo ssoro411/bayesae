@@ -122,16 +122,16 @@ Model = function(model) {
     } else {
       m <-"
       data {
-  int<lower=1>       m;      // number of small areas
+      int<lower=1>       m;      // number of small areas
       int<lower=1>       s;      // Dimension of data
       int<lower=1>       p;      // Number of auxiliary variables
       matrix[s,p]        X[m];   // Auxiliary variables
       vector[s]          yi[m];  // Response vector
-      vector<lower=0>[s] Si[m];  // Sampling errors (Known)
-    }
+      vector<lower=0>[s] Si[m];  // Sampling errors (Variance)
+      }
       parameters {
       vector[p] beta;             //
-      vector[s] theta[m];         //
+      vector[s] theta[m];         // m, s x 1 area characteristics
       cholesky_factor_cov[s]  L;  //
       }
       transformed parameters {

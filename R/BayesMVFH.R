@@ -1,55 +1,50 @@
+#' Multivariate Fay-Herriot Model
+#'
+#' Bayesian approach to Multivariate Fay-Herriot models.
+#' @param direct Direct estimates.
+#' @param aux Auxiliary variables.
+#' @param Di Pre-specified number.
+#' @param domain Domain names.
+#' @param pars Parameters to be monitored.
+#' @param iter Total iteration.
+#' @param warmup Warm up. Default is "iter/2".
+#' @param chains Number of chains. Default is 4.
+#' @param control See the "rstan" document.
+#' @param open.progress Progress of chiain will be presented if it is TRUE.
+#' @return Simulated posterior sample from the Stan.
+
 library(rstan)
 library(loo)
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
-
-
-
-
 #########################################################################
 setClass(
   Class = "stanfit.sae",
   slots = c(estimates = "data.frame", fitness = "list", model.call = "list"),
-  contains = "stanfit"
-)
+  contains = "stanfit")
 #########################################################################
 ##  S4 method for extraction of SAEs from class stanfit.sae
 #########################################################################
-
 setGeneric("getEstimates",
            def = function(object){standardGeneric("getEstimates")})
 setMethod("getEstimates", signature = "stanfit.sae",
           definition = function(object){object@estimates})
-
-
 #########################################################################
 ##  Function that conducts posterior simulation using Stan
 #########################################################################
 
-BayesMVFH <- function(formula, data = NULL , Di = NULL, domain = NULL,
-                     model = "FH", W = NULL, range = NULL, logit.trans=TRUE,
-                     pars=c("sigma_sq", "beta", "theta","log_lik"),
-                     iter = 1000, warmup = floor(iter/2), chains = 4,
+BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
+                     pars=NA, iter = 1000, warmup = floor(iter/2), chains = 4,
                      control = list(max_treedepth=12, adapt_delta = 0.95),
                      open.progress = TRUE, ...){
 
-  this.call <- as.list( sys.call() )
-  mf_ <- model.frame(formula, data = data)
-  Y <- model.extract(mf_, "response")
-  X <- model.matrix(formula, data = data)
-  aux <- names(mf_)[-1]
-  model_name <- paste("Stan_",model,".stan",sep="")
+  this.call  <- as.list( sys.call() )
+  model_name <- paste("Multivariate_FH.stan")
 
-  if(model == "FH"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di) )
-  }else if (model == "SAR"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=W)
-  }else {
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=W, rupper=range[2],rlower=range[1] )
-  }
+  dat = list(m=dim(aux)[1], s=dim(aux)[2],  p=dim(aux)[3], yi=direct, X=aux, Di= Di  )
 
 
-  stanfit <- stan(model_code = Model(model), model_name = model,
+  stanfit <- stan(model_code = Model("MV"), model_name = model,
                   data = dat, pars = pars,
                   iter = iter, warmup = warmup, chains = chains,
                   open_progress = open.progress,
@@ -60,13 +55,12 @@ BayesMVFH <- function(formula, data = NULL , Di = NULL, domain = NULL,
   ll = extract_log_lik(stanfit)
   model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
 
-  if(logit.trans) theta.smpl <- expit(theta.smpl)
   posterior.summary <- data.frame(domain = rownames(data),
                                   monitor(theta.smpl, digits_summary = 5,
                                           warmup = 0,
                                           probs = c(0.025, 0.50, 0.975),
                                           print = FALSE))[,-3]
-  names(posterior.summary) <- c("domain", "mean", "se_mean", "sd",
+  names(posterior.summary) <- c("domain", "mean", "sd",
                                 "Q.025", "median", "Q.975", "n_eff",
                                 "Rhat")
   stanfit.slots <- sapply(slotNames(stanfit), slot, object = stanfit,

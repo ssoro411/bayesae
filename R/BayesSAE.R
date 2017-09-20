@@ -46,7 +46,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di) )
     }else if (model == "SAR"){
     dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=W)
-    }else {
+    }else if (model == "CAR"){
     dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=W, rupper=range[2],rlower=range[1] )
      }
 
