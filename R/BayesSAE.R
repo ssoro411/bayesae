@@ -1,13 +1,14 @@
 #' Univariate hierarchical Bayes approach to small area estimation.
 #'
 #' Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan.
+#' @name BayesSAE
 #' @param formular formula
 #' @param data Data frame with direct estimate and auxiliary variables.
 #' @param Di Sampling variance.
 #' @param domain Vector with Domain names.
 #' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
-#' @param W Spatial matrix. If {model}="SAR", rowsum should be 1.
-#' @param range Range of eigenvalues of W (only used if {model}="CAR").
+#' @param W Spatial matrix. If model="SAR", rowsum should be 1.
+#' @param range Range of eigenvalues of W (only used if model="CAR").
 #' @param logit.trans If true, it transforms simulated theta values to inv.logit(theta).
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
@@ -16,6 +17,7 @@
 #' @param control See the "rstan" document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
 #' @return Simulated posterior sample from the Stan.
+#' @export
 
 library(rstan)
 library(loo)

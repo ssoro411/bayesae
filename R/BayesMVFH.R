@@ -1,6 +1,7 @@
 #' Multivariate Fay-Herriot Model interfacing with Stan
 #'
 #' Bayesian approach to Multivariate Fay-Herriot models.
+#' @name BayesMVFH
 #' @param direct Direct estimates.
 #' @param aux Auxiliary variables.
 #' @param Di Pre-specified number.
@@ -11,8 +12,14 @@
 #' @param chains Number of chains. Default is 4.
 #' @param control See the "rstan" document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
+#'
 #' @return Simulated posterior sample from the Stan.
+#' @export
 
+library(rstan)
+library(loo)
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
 
 BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
                       pars = NA, iter = 1000, warmup = floor(iter/2), chains = 4,
