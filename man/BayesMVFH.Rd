@@ -30,3 +30,7 @@ Simulated posterior sample from the Stan.
 \description{
 Bayesian approach to Multivariate Fay-Herriot models.
 }
+\references{
+\insertRef{carpenter2016stan}{bayesae}
+\insertRef{guo2016rstan}{bayesae}
+}

@@ -38,3 +38,7 @@ Simulated posterior sample from the Stan.
 \description{
 Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan.
 }
+\references{
+\insertRef{carpenter2016stan}{bayesae}
+\insertRef{guo2016rstan}{bayesae}
+}

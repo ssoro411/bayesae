@@ -15,6 +15,12 @@
 #'
 #' @return Simulated posterior sample from the Stan.
 #' @export
+#' @references
+#'
+#' \insertRef{carpenter2016stan}{bayesae}
+#' \insertRef{guo2016rstan}{bayesae}
+
+
 
 library(rstan)
 library(loo)
