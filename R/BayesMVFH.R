@@ -23,6 +23,11 @@
 #'
 #' \insertRef{vehtari2014waic}{bayesae}
 
+library(rstan)
+library(loo)
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+
 
 #########################################################################
 setClass(
@@ -30,6 +35,7 @@ setClass(
   slots = c(estimates = "data.frame", fitness = "list", model.call = "list"),
   contains = "stanfit"
 )
+
 #########################################################################
 ##  S4 method for extraction of SAEs from class stanfit.sae
 #########################################################################
@@ -40,10 +46,6 @@ setMethod("getEstimates", signature = "stanfit.sae",
           definition = function(object){object@estimates})
 
 
-library(rstan)
-library(loo)
-rstan_options(auto_write = TRUE)
-options(mc.cores = parallel::detectCores())
 
 BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
                       pars = NA, iter = 1000, warmup = floor(iter/2), chains = 4,
