@@ -24,6 +24,21 @@
 #' \insertRef{vehtari2014waic}{bayesae}
 
 
+#########################################################################
+setClass(
+  Class = "stanfit.sae",
+  slots = c(estimates = "data.frame", fitness = "list", model.call = "list"),
+  contains = "stanfit"
+)
+#########################################################################
+##  S4 method for extraction of SAEs from class stanfit.sae
+#########################################################################
+
+setGeneric("getEstimates",
+           def = function(object){standardGeneric("getEstimates")})
+setMethod("getEstimates", signature = "stanfit.sae",
+          definition = function(object){object@estimates})
+
 
 library(rstan)
 library(loo)
