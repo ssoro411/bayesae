@@ -3,8 +3,8 @@
 #' Bayesian approach to \code{s}-variate Fay-Herriot models.
 #' @name BayesMVFH
 #' @param direct Direct estimates.
-#' @param aux \code{m}\eqn{\times}\code{m}\eqn{\times}\code{p} array of auxiliary variables.
-#' @param Di Sampling variance
+#' @param aux Array of auxiliary variable with \code{dim=c(m,s,p)}.
+#' @param Di \code{m x s} matrix with sampling variance.
 #' @param domain Domain names.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.

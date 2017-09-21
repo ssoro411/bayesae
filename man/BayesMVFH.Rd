@@ -6,9 +6,9 @@
 \arguments{
 \item{direct}{Direct estimates.}
 
-\item{aux}{\code{m}\eqn{\times}\code{m}\eqn{\times}\code{p} array of auxiliary variables.}
+\item{aux}{Array of auxiliary variable with \code{dim=c(m,s,p)}.}
 
-\item{Di}{Sampling variance}
+\item{Di}{\code{m x s} matrix with sampling variance.}
 
 \item{domain}{Domain names.}
 
