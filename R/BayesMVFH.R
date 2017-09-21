@@ -2,7 +2,7 @@
 #'
 #' Bayesian approach to \code{s}-variate Fay-Herriot models.
 #' @name BayesMVFH
-#' @param direct Direct estimates.
+#' @param direct \code{m} by \code{s} matrix with direct estimate.
 #' @param aux Array of auxiliary variable with \code{dim=c(m,s,p)}.
 #' @param Di \code{m} by \code{s} matrix with sampling variance.
 #' @param domain \code{m} vector with domain names.
@@ -11,9 +11,9 @@
 #' @param warmup Warm up. Default is "\code{floor}(\code{iter/2})".
 #' @param chains Number of chains. Default is 4.
 #' @param control See the \code{rstan} package document.
-#' @param open.progress Progress of chiain will be presented if it is TRUE.
+#' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
 #'
-#' @return Simulated posterior sample from the Stan.
+#' @return Simulated posterior sample from the \code{rstan}.
 #' @export
 #' @references
 #'

@@ -15,8 +15,8 @@
 #' @param warmup Warm up. Default is "\code{floor}(\code{iter}/2)".
 #' @param chains Number of chains. Default is 4.
 #' @param control See the \code{rstan} package document.
-#' @param open.progress Progress of chiain will be presented if it is TRUE.
-#' @return Simulated posterior sample from the Stan.
+#' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
+#' @return Simulated posterior sample from the \code{rstan}.
 #' @export
 #' @references
 #'
