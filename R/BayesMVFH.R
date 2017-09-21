@@ -5,7 +5,7 @@
 #' @param direct Direct estimates.
 #' @param aux Array of auxiliary variable with \code{dim=c(m,s,p)}.
 #' @param Di \code{m x s} matrix with sampling variance.
-#' @param domain Domain names.
+#' @param domain Domain names. \eqn{\times \beta}
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
 #' @param warmup Warm up. Default is "\code{iter}/2".

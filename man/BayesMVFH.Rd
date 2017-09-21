@@ -10,7 +10,7 @@
 
 \item{Di}{\code{m x s} matrix with sampling variance.}
 
-\item{domain}{Domain names.}
+\item{domain}{Domain names. \eqn{\times \beta}}
 
 \item{pars}{Parameters to be monitored.}
 
