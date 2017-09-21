@@ -8,7 +8,7 @@
 #' @param domain \code{m} vector with domain names.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
-#' @param warmup Warm up. Default is "\code{iter}/2".
+#' @param warmup Warm up. Default is "\code{floor}(\code{iter/2})".
 #' @param chains Number of chains. Default is 4.
 #' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
