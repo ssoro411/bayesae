@@ -4,7 +4,7 @@
 #' @name BayesSAE
 #' @param formular formula
 #' @param data Data frame with direct estimate and auxiliary variables.
-#' @param Di Sampling variance.
+#' @param Di \code{m} vector with sampling variance.
 #' @param domain Vector with Domain names.
 #' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
 #' @param W Spatial matrix. If \code{model}="SAR", rowsum should be 1.
@@ -14,7 +14,7 @@
 #' @param iter Total iteration.
 #' @param warmup Warm up. Default is "\code{floor}(\code{iter}/2)".
 #' @param chains Number of chains. Default is 4.
-#' @param control See the "rstan" document.
+#' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
 #' @return Simulated posterior sample from the Stan.
 #' @export

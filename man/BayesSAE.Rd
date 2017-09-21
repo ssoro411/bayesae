@@ -8,7 +8,7 @@
 
 \item{data}{Data frame with direct estimate and auxiliary variables.}
 
-\item{Di}{Sampling variance.}
+\item{Di}{\code{m} vector with sampling variance.}
 
 \item{domain}{Vector with Domain names.}
 
@@ -28,7 +28,7 @@
 
 \item{chains}{Number of chains. Default is 4.}
 
-\item{control}{See the "rstan" document.}
+\item{control}{See the \code{rstan} package document.}
 
 \item{open.progress}{Progress of chiain will be presented if it is TRUE.}
 }

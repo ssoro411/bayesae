@@ -4,13 +4,13 @@
 #' @name BayesMVFH
 #' @param direct Direct estimates.
 #' @param aux Array of auxiliary variable with \code{dim=c(m,s,p)}.
-#' @param Di \code{m x s} matrix with sampling variance.
-#' @param domain Domain names. \eqn{\times \beta}
+#' @param Di \code{m} by \code{s} matrix with sampling variance.
+#' @param domain \code{m} vector with domain names.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
 #' @param warmup Warm up. Default is "\code{iter}/2".
 #' @param chains Number of chains. Default is 4.
-#' @param control See the "rstan" document.
+#' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is TRUE.
 #'
 #' @return Simulated posterior sample from the Stan.

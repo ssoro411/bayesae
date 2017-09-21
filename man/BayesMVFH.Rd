@@ -8,9 +8,9 @@
 
 \item{aux}{Array of auxiliary variable with \code{dim=c(m,s,p)}.}
 
-\item{Di}{\code{m x s} matrix with sampling variance.}
+\item{Di}{\code{m} by \code{s} matrix with sampling variance.}
 
-\item{domain}{Domain names. \eqn{\times \beta}}
+\item{domain}{\code{m} vector with domain names.}
 
 \item{pars}{Parameters to be monitored.}
 
@@ -20,7 +20,7 @@
 
 \item{chains}{Number of chains. Default is 4.}
 
-\item{control}{See the "rstan" document.}
+\item{control}{See the \code{rstan} package document.}
 
 \item{open.progress}{Progress of chiain will be presented if it is TRUE.}
 }
