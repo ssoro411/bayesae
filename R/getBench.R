@@ -1,6 +1,7 @@
 #' Returning penalty parameter for benchmarked Bayes estimator based on supplied sample.
 #'
 #' Provide penalty parameter for Benchmarked Bayes Estimator.
+#' @name getBench
 #' @param fit \code{stan} sample to be benchmarked.
 #' @param weight Weight vector associates with the benchmark.
 #' @param par Parameter name to be benchmarked. Default is \eqn{\theta}.
