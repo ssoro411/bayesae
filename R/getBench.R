@@ -30,7 +30,12 @@
 getBench <- function(fit, weight = NULL, par = "theta", interval = NULL ){
 
 if( is.null(interval) ){
-postsam <- extract(fit, par="theta", permuted = TRUE)
+  if( class(fit)[1] == "stanfit" ){
+    postsam <- extract(fit, par="theta", permuted = TRUE)
+  } else if ( class(fit)[1] == "array" | class(fit)[1] == "matrix"){
+    postsam <- fit
+  } else { stop(paste( "Data class should be stanfit or arry or matrix")) }
+
 #str(postsam)
 dims  <- dim(postsam$theta)
 ndims <- length(dims)
