@@ -17,6 +17,7 @@
 #' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
 #' @return Simulated posterior sample from the \code{rstan}.
+#' @import stats rstan loo
 #' @export
 #' @references
 #'
@@ -94,7 +95,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
       }
 
 
-    posterior.summary <- data.frame(domain = domain, direct = Y,
+    posterior.summary <- data.frame(domain = domain, direct = direct,
                                     monitor(theta.smpl, digits_summary = 5,
                                             warmup = 0,
                                             probs = c(0.025, 0.50, 0.975),

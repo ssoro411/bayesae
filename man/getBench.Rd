@@ -7,13 +7,13 @@
 getBench(fit, weight = NULL, par = "theta", interval = NULL)
 }
 \arguments{
-\item{fit}{\code{stan} sample to be benchmarked.}
+\item{fit}{\code{stan} ofr \code{array} of sample to be benchmarked. Target \eqn{t} will be the sample weighted average.}
 
 \item{weight}{Weight vector associates with the benchmark.}
 
 \item{par}{Parameter name to be benchmarked. Default is \eqn{\theta}.}
 
-\item{interval}{95\% credible interval of \eqn{t}. If supplied, other inputs are suppressed and standard error of \eqn{t} is approximated by \code{range(interval)/4}}
+\item{interval}{95\% credible interval of \eqn{t}. If supplied, other inputs are suppressed and standard error of \eqn{t} is approximated by \code{range(interval)/4}.}
 }
 \description{
 Provide penalty parameter for Benchmarked Bayes Estimator.
