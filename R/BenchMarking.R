@@ -1,9 +1,9 @@
-#' Benchmarked Bayes Estimator
+#' Benchmarked bayes estimator
 #'
 #' Constrained Bayes estimator which minimizes posterior weighted squared error loss.
 #' @param theta_b Bayes estimator.
 #' @param w Weight vector associates with the benchmark.
-#' @param t Pre-specified number.
+#' @param t Scalar or vector to be benchmarked.
 #' @param phi Weight vector associates with weighted squared sum of square loss.
 #' @param lambda Penalty parameter. Default is \eqn{\lambda = \infty} and it will conduct exact benchmark.
 #' @return Resulting Benchmarked Bayes Estimator.

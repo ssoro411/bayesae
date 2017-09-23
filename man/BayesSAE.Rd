@@ -30,10 +30,10 @@
 
 \item{control}{See the \code{rstan} package document.}
 
-\item{open.progress}{Progress of chiain will be presented if it is TRUE.}
+\item{open.progress}{Progress of chiain will be presented if it is \code{TRUE}.}
 }
 \value{
-Simulated posterior sample from the Stan.
+Simulated posterior sample from the \code{rstan}.
 }
 \description{
 Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan.

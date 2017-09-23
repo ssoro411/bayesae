@@ -3,3 +3,4 @@
 export(BayesMVFH)
 export(BayesSAE)
 export(bbm)
+export(getBench)

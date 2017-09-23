@@ -2,7 +2,7 @@
 % Please edit documentation in R/BenchMarking.R
 \name{bbm}
 \alias{bbm}
-\title{Benchmarked Bayes Estimator}
+\title{Benchmarked bayes estimator}
 \usage{
 bbm(theta_b, w, t, phi, lambda = Inf)
 }
@@ -11,7 +11,7 @@ bbm(theta_b, w, t, phi, lambda = Inf)
 
 \item{w}{Weight vector associates with the benchmark.}
 
-\item{t}{Pre-specified number.}
+\item{t}{Scalar or vector to be benchmarked.}
 
 \item{phi}{Weight vector associates with weighted squared sum of square loss.}
 

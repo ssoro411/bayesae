@@ -70,14 +70,15 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
   ll = extract_log_lik(stanfit)
   model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
 
-  posterior.summary <- data.frame(domain = domain,
+  posterior.summary <- data.frame(domain = domain, direct = direct,
                                   monitor(theta.smpl, digits_summary = 5,
                                           warmup = 0,
                                           probs = c(0.025, 0.50, 0.975),
-                                          print = FALSE))[,-3]
-  names(posterior.summary) <- c("domain", "mean", "sd",
-                                "Q.025", "median", "Q.975", "n_eff",
-                                "Rhat")
+                                          print = FALSE))
+  posterior.summary <- posterior.summary[,setdiff( colnames(posterior.summary), c("se_mean","n_eff","Rhat") )]
+
+  names(posterior.summary) <- c("domain","direct_est", "post_mean", "post_sd",
+                                "Q.025", "median", "Q.975")
   stanfit.slots <- sapply(slotNames(stanfit), slot, object = stanfit,
                           simplify=F)
 
@@ -85,7 +86,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
                                        estimates = posterior.summary,
                                        fitness   = model_qual,
                                        model.call = this.call),
-                                  stanfit.slots))
+                                       stanfit.slots))
   return( result )
 }
 

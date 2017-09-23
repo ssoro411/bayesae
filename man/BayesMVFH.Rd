@@ -4,7 +4,7 @@
 \alias{BayesMVFH}
 \title{Multivariate Fay-Herriot Model interfacing with Stan}
 \arguments{
-\item{direct}{Direct estimates.}
+\item{direct}{\code{m} by \code{s} matrix with direct estimate.}
 
 \item{aux}{Array of auxiliary variable with \code{dim=c(m,s,p)}.}
 
@@ -22,10 +22,10 @@
 
 \item{control}{See the \code{rstan} package document.}
 
-\item{open.progress}{Progress of chiain will be presented if it is TRUE.}
+\item{open.progress}{Progress of chiain will be presented if it is \code{TRUE}.}
 }
 \value{
-Simulated posterior sample from the Stan.
+Simulated posterior sample from the \code{rstan}.
 }
 \description{
 Bayesian approach to \code{s}-variate Fay-Herriot models.
