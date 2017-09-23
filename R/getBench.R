@@ -30,7 +30,7 @@
 getBench <- function(fit, weight = NULL, par = "theta", interval = NULL ){
 
 if( is.null(interval) ){
-  if( class(fit)[1] == "stanfit" ){
+  if( class(fit)[1] == "stanfit" | class(fit)[1] == "stanfit.sae" ){
     postsam <- extract(fit, par="theta", permuted = TRUE)
   } else if ( class(fit)[1] == "array" | class(fit)[1] == "matrix"){
     postsam <- fit
