@@ -34,7 +34,7 @@ if( is.null(interval) ){
     postsam <- extract(fit, par="theta", permuted = TRUE)
   } else if ( class(fit)[1] == "array" | class(fit)[1] == "matrix"){
     postsam <- fit
-  } else { stop(paste( "Data class should be stanfit or arry or matrix")) }
+  } else { stop(paste( "Data class should be an stanfit or array or matrix")) }
 
 #str(postsam)
 dims  <- dim(postsam$theta)
