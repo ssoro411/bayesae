@@ -59,8 +59,10 @@ if( is.null(weight) ){ weight <- rep(1,dims[2]) }
 # result <- do.call("new", list("bench.sae", result = result) )
 } else{
   range  <- diff(interval)
+  t      <- mean(interval)
   vari   <- (range/4)^2
   lambda <- as.vector(1/vari)
+  result <- list( t= t, variance= vari, lambda = lambda)
 }
 return( result )
 }
