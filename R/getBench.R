@@ -6,6 +6,7 @@
 #' @param weight Weight vector associates with the benchmark.
 #' @param par Parameter name to be benchmarked. Default is \eqn{\theta}.
 #' @param interval 95\% credible interval of \eqn{t}. If supplied, other inputs are suppressed and standard error of \eqn{t} is approximated by \code{range(interval)/4}.
+#' @import rstan loo
 #' @export
 #' @references
 #'

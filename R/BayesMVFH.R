@@ -12,7 +12,7 @@
 #' @param chains Number of chains. Default is 4.
 #' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
-#'
+#' @import rstan loo
 #' @return Simulated posterior sample from the \code{rstan}.
 #' @export
 #' @references

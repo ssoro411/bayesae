@@ -7,6 +7,7 @@
 #' @param phi Weight vector associates with weighted squared sum of square loss.
 #' @param lambda Penalty parameter. Default is \eqn{\lambda = \infty} and it will conduct exact benchmark.
 #' @return Resulting Benchmarked Bayes Estimator.
+#' @import rstan loo
 #' @export
 #' @references
 #'
