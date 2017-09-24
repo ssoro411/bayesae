@@ -21,6 +21,7 @@ bbm = function(theta_b, t, interval=NULL, w, phi, lambda = NULL){
 
 r = w/phi
 s = sum(w*r)
+
 if( is.null(lambda) & is.null(interval) ){
   lambda = Inf
 } else if (is.null(lambda) & is.null(interval)!=TRUE ){
