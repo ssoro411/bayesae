@@ -30,16 +30,16 @@ if( is.null(lambda) & is.null(interval) ){
   vari   <- as.vector( (range/4)^2 )
   lambda <- 1/vari
 } else { lambda = lambda
-         paste("Both 95% credible interval and lambda are supplied. Only lambda is used")
+         print("Both 95% credible interval and lambda are supplied. Only lambda is used")
 }
 
 
 if( is.finite(lambda) ){
   theta_BM = theta_b + ( lambda/(s*lambda+1) )*(t - sum(w*theta_b) )*r
-  paste("Lambda",lambda)
+  print("Lambda",lambda)
   } else{
   theta_BM = theta_b + ( (s )^(-1) )*(t - sum(w*theta_b) )*r
-  paste("Exact benchmark")
+  print("Exact benchmark")
   }
 
 return(list(Benchmarked_estimate = theta_BM, lambda= lambda ) )

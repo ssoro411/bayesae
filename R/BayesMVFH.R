@@ -78,7 +78,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
   posterior.summary <- posterior.summary[,setdiff( colnames(posterior.summary), c("se_mean","n_eff","Rhat") )]
   posterior.summary <- posterior.summary[,c(1,2,3,4,6,5,7)]
   names(posterior.summary) <- c("domain","direct_est", "post_mean", "post_sd",
-                                "Q.025", "median", "Q.975")
+                                "median", "Q.025", "Q.975")
   stanfit.slots <- sapply(slotNames(stanfit), slot, object = stanfit,
                           simplify=F)
 
