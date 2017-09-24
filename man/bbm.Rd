@@ -4,14 +4,16 @@
 \alias{bbm}
 \title{Benchmarked bayes estimator}
 \usage{
-bbm(theta_b, w, t, phi, lambda = Inf)
+bbm(theta_b, t, interval = NULL, w, phi, lambda = NULL)
 }
 \arguments{
 \item{theta_b}{Bayes estimator.}
 
-\item{w}{Weight vector associates with the benchmark.}
-
 \item{t}{Scalar or vector to be benchmarked.}
+
+\item{interval}{95\% credible interval of \eqn{t}. If supplied standard error of \eqn{t} is approximated by \code{range(interval)/4}.}
+
+\item{w}{Weight vector associates with the benchmark.}
 
 \item{phi}{Weight vector associates with weighted squared sum of square loss.}
 
