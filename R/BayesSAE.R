@@ -101,7 +101,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                                             probs = c(0.025, 0.50, 0.975),
                                             print = FALSE))
     posterior.summary <- posterior.summary[,setdiff( colnames(posterior.summary), c("se_mean","n_eff","Rhat") )]
-
+    posterior.summary <- posterior.summary[,c(1,2,3,4,6,5,7)]
     names(posterior.summary) <- c("domain","direct_est", "post_mean", "post_sd",
                                   "Q.025", "median", "Q.975")
 
