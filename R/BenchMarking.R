@@ -1,6 +1,7 @@
 #' Benchmarked bayes estimator
 #'
 #' Constrained Bayes estimator which minimizes posterior weighted squared error loss.
+#' @name BayesSAE
 #' @param theta_b Bayes estimator.
 #' @param t Scalar or vector to be benchmarked.
 #' @param interval 95\% credible interval of \eqn{t}. If supplied standard error of \eqn{t} is approximated by \code{range(interval)/4}.
@@ -17,7 +18,7 @@
 
 ## Benchmarked Bayes Estimator
 
-bbm = function(theta_b, t, interval=NULL, w, phi, lambda = NULL){
+getBench = function(theta_b, t, interval=NULL, w, phi, lambda = NULL){
 
 r = w/phi
 s = sum(w*r)
