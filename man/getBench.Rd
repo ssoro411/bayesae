@@ -9,9 +9,9 @@ getBench(theta_b, t, interval = NULL, w, phi, lambda = NULL)
 \arguments{
 \item{theta_b}{Bayes estimator.}
 
-\item{t}{Scalar or vector to be benchmarked.}
+\item{t}{Pre-specified value to be benchmarked.}
 
-\item{interval}{95\% credible interval of \eqn{t}. If supplied standard error of \eqn{t} is approximated by \code{range(interval)/4}.}
+\item{interval}{95\% credible interval of \code{t}. If supplied, standard error of \code{t} is approximated by \code{range(interval)/4}.}
 
 \item{w}{Weight vector associates with the benchmark.}
 

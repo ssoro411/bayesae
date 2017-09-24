@@ -1,6 +1,6 @@
 #' Univariate hierarchical Bayes approach to small area estimation.
 #'
-#' Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan.
+#' Hierarchical Bayes approach to small area estimation using \code{stan}.
 #' @name BayesSAE
 #' @param formular formula
 #' @param data Data frame with direct estimate and auxiliary variables.

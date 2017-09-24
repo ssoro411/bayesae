@@ -1,6 +1,6 @@
 #' Multivariate Fay-Herriot Model interfacing with Stan
 #'
-#' Bayesian approach to \code{s}-variate Fay-Herriot models.
+#' Bayesian approach to \code{s}-variate Fay-Herriot models using \code{stan}.
 #' @name BayesMVFH
 #' @param direct \code{m} by \code{s} matrix with direct estimate.
 #' @param aux Array of auxiliary variable with \code{dim=c(m,s,p)}.

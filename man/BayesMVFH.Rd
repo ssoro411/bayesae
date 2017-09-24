@@ -28,7 +28,7 @@
 Simulated posterior sample from the \code{rstan}.
 }
 \description{
-Bayesian approach to \code{s}-variate Fay-Herriot models.
+Bayesian approach to \code{s}-variate Fay-Herriot models using \code{stan}.
 }
 \references{
 \insertRef{carpenter2016stan}{bayesae}

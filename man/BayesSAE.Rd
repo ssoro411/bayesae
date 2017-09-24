@@ -36,7 +36,7 @@
 Simulated posterior sample from the \code{rstan}.
 }
 \description{
-Hierarchical Bayes Approach to Small Area Estimation interfacing with Stan.
+Hierarchical Bayes approach to small area estimation using \code{stan}.
 }
 \references{
 \insertRef{carpenter2016stan}{bayesae}

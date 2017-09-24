@@ -3,8 +3,8 @@
 #' Constrained Bayes estimator which minimizes posterior weighted squared error loss.
 #' @name getBench
 #' @param theta_b Bayes estimator.
-#' @param t Scalar or vector to be benchmarked.
-#' @param interval 95\% credible interval of \eqn{t}. If supplied standard error of \eqn{t} is approximated by \code{range(interval)/4}.
+#' @param t Pre-specified value to be benchmarked.
+#' @param interval 95\% credible interval of \code{t}. If supplied, standard error of \code{t} is approximated by \code{range(interval)/4}.
 #' @param w Weight vector associates with the benchmark.
 #' @param phi Weight vector associates with weighted squared sum of square loss.
 #' @param lambda Penalty parameter. Default is \eqn{\lambda = \infty} and it will conduct exact benchmark.
