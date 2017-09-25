@@ -103,6 +103,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     if(logit.trans) {
       theta.smpl <- inv.logit(theta.smpl)
+      direct     <- inv.logit(direct)
       }
 
 
