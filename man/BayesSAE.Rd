@@ -31,7 +31,7 @@
 \item{open.progress}{Progress of chiain will be presented if it is \code{TRUE}.}
 }
 \value{
-Simulated posterior sample from the \code{rstan}. aaa
+Simulated posterior sample from the \code{rstan}.
 }
 \description{
 Hierarchical Bayes approach to small area estimation using \code{stan}.

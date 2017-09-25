@@ -25,7 +25,7 @@
 \item{open.progress}{Progress of chiain will be presented if it is \code{TRUE}.}
 }
 \value{
-Simulated posterior sample from the \code{rstan}.aaa
+Simulated posterior sample from the \code{rstan}.
 }
 \description{
 Bayesian approach to \code{s}-variate Fay-Herriot models using \code{stan}.
