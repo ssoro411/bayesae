@@ -16,7 +16,7 @@
 
 \item{iter}{Total iteration.}
 
-\item{warmup}{Warm up. Default is "\code{floor}(\code{iter/2})".}
+\item{warmup}{Warm up. Default is \code{floor}(\code{iter/2}).}
 
 \item{chains}{Number of chains. Default is 4.}
 
