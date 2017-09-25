@@ -3,5 +3,6 @@
 export(BayesMVFH)
 export(BayesSAE)
 export(getBench)
+import(boot)
 import(loo)
 import(rstan)
