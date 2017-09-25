@@ -3,9 +3,6 @@
 \name{getBench}
 \alias{getBench}
 \title{Benchmarked bayes estimator}
-\usage{
-getBench(theta_b, t, interval = NULL, w, phi, lambda = NULL)
-}
 \arguments{
 \item{theta_b}{Bayes estimator.}
 

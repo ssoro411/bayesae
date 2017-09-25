@@ -15,6 +15,8 @@
 #'
 #' \insertRef{datta2011bench}{bayesae}
 
+library(boot)
+library(stats)
 
 ## Benchmarked Bayes Estimator
 

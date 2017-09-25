@@ -23,9 +23,12 @@
 #'
 #' \insertRef{vehtari2014waic}{bayesae}
 
+
+library(boot)
+library(stats)
 library(rstan)
 library(loo)
-library(boot)
+
 
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
