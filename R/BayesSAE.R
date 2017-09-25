@@ -17,7 +17,7 @@
 #' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
 #' @return Simulated posterior sample from the \code{rstan}.
-#' @import rstan loo
+#' @import rstan loo boot
 #' @export
 #' @references
 #'
@@ -29,6 +29,8 @@
 
 library(rstan)
 library(loo)
+library(boot)
+
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
@@ -54,7 +56,7 @@ setMethod("getEstimates", signature = "stanfit.sae",
 #########################################################################
 
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
-                        model = "FH", W = NULL, range = NULL, logit.trans=TRUE,
+                        model = "FH", W = NULL, logit.trans=TRUE,
                         pars=c("sigma_sq", "beta", "theta","log_lik"),
                         iter = 1000, warmup = floor(iter/2), chains = 4,
                         control = list(max_treedepth=12, adapt_delta = 0.95),
@@ -69,12 +71,23 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     if( is.null(domain ) ){ domain = rownames(data) }
 
+    if(logit.trans) {
+      direct     <- logit(Y)
+    } else{
+      direct     <- Y
+    }
+
+    if(model == "CAR" ){
+      rc_eig <- 1/eigen(W)$values
+      range  <- c( min(rc_eig),max(rc_eig) )
+    }
+
     if(model == "FH"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di) )
+    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di) )
     }else if (model == "SAR"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=W)
+    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di), W=W)
     }else if (model == "CAR"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=Y, X=X, sDi= sqrt(Di), W=W, rupper=range[2],rlower=range[1] )
+    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di), W=W, rupper=range[2],rlower=range[1] )
      }
 
 
@@ -90,8 +103,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
 
     if(logit.trans) {
-      theta.smpl <- expit(theta.smpl)
-      direct     <- expit(Y)
+      theta.smpl <- inv.logit(theta.smpl)
       }
 
 
