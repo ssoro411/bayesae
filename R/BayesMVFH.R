@@ -13,7 +13,7 @@
 #' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
 #' @import rstan loo boot
-#' @return Simulated posterior sample from the \code{rstan}.
+#' @return Simulated posterior sample from the \code{rstan}.aaa
 #' @export
 #' @references
 #'

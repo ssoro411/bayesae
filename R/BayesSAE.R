@@ -2,21 +2,20 @@
 #'
 #' Hierarchical Bayes approach to small area estimation using \code{stan}.
 #' @name BayesSAE
-#' @param formular formula
+#' @param formula formula
 #' @param data Data frame with direct estimate and auxiliary variables.
 #' @param Di \code{m} vector with sampling variance.
 #' @param domain Vector with Domain names.
 #' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
 #' @param W Spatial matrix. If \code{model}="SAR", rowsum should be 1.
-#' @param range Range of eigenvalues of W (only used if \code{model}="CAR").
-#' @param logit.trans If true, it transforms simulated theta values to inv.logit(theta).
+#' @param logit.trans If true, it transforms direct estimate to logit scale and conduct posterior simulation.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
 #' @param warmup Warm up. Default is "\code{floor}(\code{iter}/2)".
 #' @param chains Number of chains. Default is 4.
 #' @param control See the \code{rstan} package document.
 #' @param open.progress Progress of chiain will be presented if it is \code{TRUE}.
-#' @return Simulated posterior sample from the \code{rstan}.
+#' @return Simulated posterior sample from the \code{rstan}. aaa
 #' @import rstan loo boot
 #' @export
 #' @references
@@ -79,7 +78,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     if(model == "CAR" ){
       rc_eig <- 1/eigen(W)$values
-      range  <- c( min(rc_eig),max(rc_eig) )
+      range  <- c( rc_eig[dim(W)[1]], rc_eig[1] )
     }
 
     if(model == "FH"){

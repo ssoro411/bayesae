@@ -4,7 +4,7 @@
 \alias{BayesSAE}
 \title{Univariate hierarchical Bayes approach to small area estimation.}
 \arguments{
-\item{formular}{formula}
+\item{formula}{formula}
 
 \item{data}{Data frame with direct estimate and auxiliary variables.}
 
@@ -16,9 +16,7 @@
 
 \item{W}{Spatial matrix. If \code{model}="SAR", rowsum should be 1.}
 
-\item{range}{Range of eigenvalues of W (only used if \code{model}="CAR").}
-
-\item{logit.trans}{If true, it transforms simulated theta values to inv.logit(theta).}
+\item{logit.trans}{If true, it transforms direct estimate to logit scale and conduct posterior simulation.}
 
 \item{pars}{Parameters to be monitored.}
 
@@ -33,7 +31,7 @@
 \item{open.progress}{Progress of chiain will be presented if it is \code{TRUE}.}
 }
 \value{
-Simulated posterior sample from the \code{rstan}.
+Simulated posterior sample from the \code{rstan}. aaa
 }
 \description{
 Hierarchical Bayes approach to small area estimation using \code{stan}.
