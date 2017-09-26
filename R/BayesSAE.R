@@ -31,9 +31,10 @@ library(stats)
 library(rstan)
 library(loo)
 
-
+## Maybe unnecessary######################
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
+##########################################
 
 
 #########################################################################
