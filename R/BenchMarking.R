@@ -22,8 +22,8 @@ library(stats)
 
 getBench = function(theta_b, t, interval=NULL, w, phi, lambda = NULL){
 
-r = w/phi
-s = sum(w*r)
+r <- w/phi
+s <- sum(w*r)
 
 if( is.null(lambda) & is.null(interval) ){
   lambda = Inf
@@ -37,10 +37,10 @@ if( is.null(lambda) & is.null(interval) ){
 
 
 if( is.finite(lambda) ){
-  theta_BM = theta_b + ( lambda/(s*lambda+1) )*(t - sum(w*theta_b) )*r
+  theta_BM <- theta_b + ( lambda/(s*lambda+1) )*(t - sum(w*theta_b) )*r
   print("Lambda",lambda)
   } else{
-  theta_BM = theta_b + ( (s )^(-1) )*(t - sum(w*theta_b) )*r
+  theta_BM <- theta_b + ( (s )^(-1) )*(t - sum(w*theta_b) )*r
   print("Exact benchmark")
   }
 

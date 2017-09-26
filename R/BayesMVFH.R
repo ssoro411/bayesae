@@ -60,7 +60,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
   this.call  <- as.list( sys.call() )
   model_name <- paste("Multivariate_FH.stan")
 
-  dat = list(m=dim(aux)[1], s=dim(aux)[2],  p=dim(aux)[3], yi=direct, X=aux, Di= Di  )
+  dat <- list(m=dim(aux)[1], s=dim(aux)[2],  p=dim(aux)[3], yi=direct, X=aux, Di= Di  )
 
   if( is.null(domain ) ){ domain = 1:dim(aux)[1] }
 
@@ -73,7 +73,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
   theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
 
   ll = extract_log_lik(stanfit)
-  model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
+  model_qual <- list( LOO = loo(ll), WAIC = waic(ll) )
 
   posterior.summary <- data.frame(domain = domain, direct = as.vector(direct),
                                   monitor(theta.smpl, digits_summary = 5,

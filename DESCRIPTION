@@ -9,7 +9,7 @@ Authors@R: c(person("Gauri", "Datta", role = "aut"),
               person("Steve", "Gutreuter", role = "aut"))
 Author: Gauri Datta [aut], HeeCheol Chung [aut, cre], Steve Gutreuter [aut]
 Maintainer: HeeCheol Chung <heecheol.chung25@uga.edu>
-Description: Hierarchical Bayes approach to Small Area Estimation Models
+Description: Hierarchical Bayes approach to Small Area Estimation Models.
 Depends: rstan, loo, boot, stats
 License: HeeCheol Chung, Steve Gutreuter
 Encoding: UTF-8

@@ -103,7 +103,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     theta.smpl <- extract(stanfit, pars = "theta", permuted = FALSE)
 
     ll = extract_log_lik(stanfit)
-    model_qual = list( LOO = loo(ll), WAIC = waic(ll) )
+    model_qual <- list( LOO = loo(ll), WAIC = waic(ll) )
 
     if(logit.trans) {
       theta.smpl <- inv.logit(theta.smpl)
