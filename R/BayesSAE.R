@@ -8,7 +8,7 @@
 #' @param domain Vector with Domain names.
 #' @param model There are three possible models. "FH" for Fay-Herriot model, "CAR" for conditional auto-regressive model and "SAR" for simultaneous auto-regressive model.
 #' @param W Spatial matrix. If \code{model}="SAR", rowsum should be 1.
-#' @param logit.trans If true, it transforms direct estimate to logit scale and conduct posterior simulation.
+#' @param logit.trans If true, it transforms direct estimate to logit scale and sampling variance is approximated by the delta mehod. Simulation result will be returned in origial proportion scale.
 #' @param pars Parameters to be monitored.
 #' @param iter Total iteration.
 #' @param warmup Warm up. Default is "\code{floor}(\code{iter}/2)".
@@ -74,6 +74,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
 
     if(logit.trans) {
       direct     <- logit(Y)
+      Di         <- Di*(Y-Y^2)^(-2) # Delta method
     } else{
       direct     <- Y
     }

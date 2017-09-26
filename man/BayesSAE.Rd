@@ -16,7 +16,7 @@
 
 \item{W}{Spatial matrix. If \code{model}="SAR", rowsum should be 1.}
 
-\item{logit.trans}{If true, it transforms direct estimate to logit scale and conduct posterior simulation.}
+\item{logit.trans}{If true, it transforms direct estimate to logit scale and sampling variance is approximated by the delta mehod. Simulation result will be returned in origial proportion scale.}
 
 \item{pars}{Parameters to be monitored.}
 
