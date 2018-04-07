@@ -45,19 +45,13 @@ Model = function(model) {
       real<lower=0> sDi[m];     // Square root of sampling variances
       matrix<lower=0, upper=1>[m,m] W;           // Spatial matrix
       matrix[m,p]   X;           // Auxiliary variable matrix
+      matrix[m,m]   I;           // Identity matrix
       }
       parameters {
       real<lower=-0.99999, upper=0.99999> rho;   // Spatial parameter
       real<lower=0>  sigma_sq;                   // Scale parameter
       vector[7]          beta;                   // Regression parameter
       vector[m]         theta;                   // Area characteristics
-      }
-      transformed parameters {
-      vector[m] mu;
-      vector[m] ones;
-      matrix<lower=0>[m,m] I;
-      ones = rep_vector(1,m);
-      I    = diag_matrix(ones);
       }
       model {
       theta    ~ multi_normal_prec(X*beta, (1/sigma_sq)*((I-rho*(W))*(I-rho*(W'))) );
@@ -84,6 +78,7 @@ Model = function(model) {
       real<lower=0> sDi[m];      // Square root of sampling variances
       matrix<lower=0, upper=1>[m,m]   W;           // Spatial matrix
       matrix[m,p]   X;           // Auxiliary variable matrix
+      matrix[m,m]   I;           // Identity matrix
       real rupper;                   // Upper bound of rho
       real rlower;                   // Lower bound of rho
       }
@@ -93,16 +88,8 @@ Model = function(model) {
       vector[p]          beta;               // Regression parameter
       vector[m]         theta;               // Area characteristics
       }
-      transformed parameters {
-      vector[m] mu;
-      vector[m] ones;
-      matrix<lower=0>[m,m] I;
-      ones = rep_vector(1,m);
-      I    = diag_matrix(ones);
-      mu = X*beta;
-      }
       model {
-      theta    ~ multi_normal_prec(mu, (1/sigma_sq)*( (I-rho*(W)) ) );
+      theta    ~ multi_normal_prec(X*beta, (1/sigma_sq)*( (I-rho*(W)) ) );
       for( i in 1:m)
       y[i]     ~ normal(theta[i], sDi[i]);
       }

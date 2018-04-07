@@ -88,9 +88,9 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     if(model == "FH"){
     dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di) )
     }else if (model == "SAR"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di), W=W)
+    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di), W=W, I=diag(dim(X)[1]) )
     }else if (model == "CAR"){
-    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di), W=W, rupper=range[2],rlower=range[1] )
+    dat <- list(m=dim(X)[1], p=dim(X)[2], y=direct, X=X, sDi= sqrt(Di), W=W, I=diag(dim(X)[1]), rupper=range[2],rlower=range[1] )
      }
 
 
