@@ -1,3 +1,13 @@
+#' Stan models
+#'
+#' Stan models for Fay-Herriot, simultaneous autoregressive and conditional autoregressive models.
+#' @name Model_fast
+#' @param model Name of a model (\code{"FH"}, \code{"CAR"}, \code{"SAR"}, \code{"MVFH"}).
+#' @import rstan loo boot
+#' @export
+#' @references
+#'
+
 #########################################################################
 ##  Function specifying selected model.
 #########################################################################
