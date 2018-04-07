@@ -94,7 +94,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
      }
 
 
-    stanfit <- stan(model_code = Model(model), model_name = model,
+    stanfit <- stan(model_code = Model_f(model), model_name = model,
                     data = dat, pars = pars,
                     iter = iter, warmup = warmup, chains = chains,
                     open_progress = open.progress,

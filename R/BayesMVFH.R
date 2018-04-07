@@ -64,7 +64,7 @@ BayesMVFH <- function(direct= NULL, aux = NULL , Di = NULL, domain = NULL,
 
   if( is.null(domain ) ){ domain = 1:dim(aux)[1] }
 
-  stanfit <- stan(model_code = Model("MV"), model_name = "Multivariate_FH",
+  stanfit <- stan(model_code = Model_f("MV"), model_name = "Multivariate_FH",
                   data = dat, pars = pars,
                   iter = iter, warmup = warmup, chains = chains,
                   open_progress = open.progress,
