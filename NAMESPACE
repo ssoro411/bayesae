@@ -2,7 +2,7 @@
 
 export(BayesMVFH)
 export(BayesSAE)
-export(Model_fast)
+export(Model)
 export(getBench)
 import(boot)
 import(loo)
