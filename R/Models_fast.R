@@ -63,7 +63,7 @@ Model_f = function(model) {
       vector[m]         theta;                   // Area characteristics
       }
       model {
-      theta    ~ multi_normal_prec(X*beta, (1/sigma_sq)*((I-rho*(W))*(I-rho*(W'))) );
+      theta    ~ multi_normal_prec(X*beta, (1/sigma_sq)*((I-rho*(W'))*(I-rho*(W))) );
       for( i in 1:m)
       y[i]     ~ normal(theta[i], sDi[i]);
       }

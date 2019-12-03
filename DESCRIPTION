@@ -5,13 +5,13 @@ Title: Hierarchical Bayes for Small Area Estimation
 Version: 0.1.0
 Authors@R: c(person("Gauri", "Datta", role = "aut"),
               person("HeeCheol", "Chung", role = c("aut", "cre"),
-                     email = "heecheol.chung25@uga.edu"),
+                     email = "hc32681@uga.edu"),
               person("Steve", "Gutreuter", role = "aut"))
 Author: Gauri Datta [aut], HeeCheol Chung [aut, cre], Steve Gutreuter [aut]
 Maintainer: HeeCheol Chung <heecheol.chung25@uga.edu>
 Description: Hierarchical Bayes approach to Small Area Estimation Models.
 Depends: rstan, loo, boot, stats
-License: HeeCheol Chung, Steve Gutreuter
+License: Hee Cheol Chung, Steve Gutreuter
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000

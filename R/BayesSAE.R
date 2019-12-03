@@ -31,7 +31,7 @@ library(stats)
 library(rstan)
 library(loo)
 
-## Maybe unnecessary######################
+##########################################
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 ##########################################
@@ -60,7 +60,7 @@ setMethod("getEstimates", signature = "stanfit.sae",
 BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
                         model = "FH", W = NULL, logit.trans=TRUE,
                         pars=c("sigma_sq", "beta", "theta","log_lik"),
-                        iter = 1000, warmup = floor(iter/2), chains = 4,
+                        iter = 1000, warmup = floor(iter/2), chains = 2,
                         control = list(max_treedepth=12, adapt_delta = 0.95),
                         open.progress = TRUE){
 
@@ -68,7 +68,7 @@ BayesSAE <- function(formula, data = NULL , Di = NULL, domain = NULL,
     mf_ <- model.frame(formula, data = data)
     Y <- model.extract(mf_, "response")
     X <- model.matrix(formula, data = data)
-    aux <- names(mf_)[-1]
+    aux <- names(mf_)[-1] # Auxiliary variable names
     model_name <- paste("Stan_",model,".stan",sep="")
 
     if( is.null(domain ) ){ domain = rownames(data) }
