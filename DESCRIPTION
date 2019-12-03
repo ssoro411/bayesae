@@ -1,7 +1,7 @@
 Package: bayesae
 Type: Package
 Date: 2017-09-25
-Title: Hierarchical Bayes for Small Area Estimation
+Title: Hierarchical Bayes Spatial Models for Small Area Estimation
 Version: 0.1.0
 Authors@R: c(person("Gauri", "Datta", role = "aut"),
               person("HeeCheol", "Chung", role = c("aut", "cre"),
